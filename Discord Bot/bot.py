@@ -32,10 +32,9 @@ def discord_run_bot():
 
         print(f'{username} said: "{user_message}" at the channel: ({channel})')
 
-        if user_message[0] == '?':
-            user_message = user_message[1:]
+        if user_message[:2] == '-?':                                
             await mensajes_enviados(message, user_message, is_private=True)
         else:
             await mensajes_enviados(message, user_message, is_private=False)
-    
+
     client.run(TOKEN)
